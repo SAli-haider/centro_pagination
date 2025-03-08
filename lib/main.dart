@@ -1,9 +1,11 @@
 import 'package:assesment_test/provider/product_provider.dart';
 import 'package:assesment_test/screens/bottom_navigation/bottom_navigation.dart';
+import 'package:assesment_test/utils/pallets/pallets.dart';
 import 'package:assesment_test/utils/widgets/notification_permission.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
@@ -22,6 +24,13 @@ Future<void> main() async {
   final token = await FirebaseMessaging.instance.getToken();
   print("token $token");
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Pallets.primary, // Change status bar color
+    statusBarIconBrightness: Brightness.light, // White icons
+    systemNavigationBarColor: Pallets.primary, // Change navigation bar color
+    systemNavigationBarIconBrightness: Brightness.light, // White icons
+  ));
 
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
