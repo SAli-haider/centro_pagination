@@ -2,7 +2,7 @@
 
 A new Flutter project.
 
-## Getting Started
+## Use Flutter 3.22.2
 
 This project is a starting point for a Flutter application.
 
