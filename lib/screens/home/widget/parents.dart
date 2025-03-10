@@ -22,11 +22,12 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 16),
-      padding: const EdgeInsets.all(10),
+      margin: EdgeInsets.symmetric(vertical: 5.h, horizontal: 23.w),
+      //padding: const EdgeInsets.all(10),
+      padding: EdgeInsets.zero,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(13),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.2),
@@ -37,19 +38,26 @@ class CustomListTile extends StatelessWidget {
         ],
       ),
       child: ListTile(
-        contentPadding: const EdgeInsets.all(8),
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: 10.w,
+        ),
         leading: ClipRRect(
           borderRadius: BorderRadius.circular(12),
-          child: CachedNetworkImage(
-            imageUrl: imagePath,
-            width: 50.r,
-            height: 50.r,
-            fit: BoxFit.cover,
+          child: Container(
+            width: 50.w,
+            height: 50.h,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30), color: Colors.grey),
+            child: CachedNetworkImage(
+              imageUrl: imagePath,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         title: CustomText.customText(
           text: name,
-          maxLines: 2,
+          maxLines: 1,
+          fontSize: 11.sp,
           fontWeight: FontWeight.bold,
         ),
         subtitle: Column(
@@ -57,11 +65,11 @@ class CustomListTile extends StatelessWidget {
           children: [
             CustomText.customText(
                 text: designation,
-                fontSize: 12.sp,
+                fontSize: 10.sp,
                 color: Colors.grey[700],
                 fontWeight: FontWeight.w600),
             CustomText.customText(
-                text: date, fontSize: 12.sp, color: Colors.grey[500]),
+                text: date, fontSize: 10.sp, color: Colors.grey[500]),
           ],
         ),
       ),
@@ -79,8 +87,9 @@ class ListTileScreen extends StatelessWidget {
         return ListView.builder(
           itemCount: value.productList.length + (value.loading ? 1 : 0),
           shrinkWrap: true,
-          cacheExtent: 2.sh,
+          cacheExtent: 1.sh * 2,
           physics: const NeverScrollableScrollPhysics(),
+          padding: EdgeInsets.zero,
           itemBuilder: (context, index) {
             if (value.loading && index == value.productList.length) {
               return const Padding(

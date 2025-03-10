@@ -44,26 +44,24 @@ class _HomeScreenState extends State<BottomNavigation> {
         shape: const CircularNotchedRectangle(),
         notchMargin: 6.0,
         color: Colors.white,
-        height: 65.h,
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10.w),
-          child: Row(
-            children: [
-              Expanded(
-                  child: _buildNavItem(
-                      "assets/images/contact-book (2) 2.png", "Directory", 0)),
-              Expanded(
-                  child: _buildNavItem(
-                      "assets/images/checklist (3) 2.png", "Boarding List", 1)),
-              const SizedBox(width: 60),
-              Expanded(
-                  child: _buildNavItem(
-                      "assets/images/evaluation (1) 2.png", "Evaluation", 3)),
-              Expanded(
-                  child:
-                      _buildNavItem("assets/images/more (1) 2.png", "More", 4)),
-            ],
-          ),
+        elevation: 5,
+        height: 60.h,
+        child: Row(
+          children: [
+            Expanded(
+                child: _buildNavItem(
+                    "assets/images/contact-book (2) 2.png", "Directory", 0)),
+            Expanded(
+                child: _buildNavItem(
+                    "assets/images/checklist (3) 2.png", "Boarding List", 1)),
+            SizedBox(width: 60.w),
+            Expanded(
+                child: _buildNavItem(
+                    "assets/images/evaluation (1) 2.png", "Evaluation", 3)),
+            Expanded(
+                child:
+                    _buildNavItem("assets/images/more (1) 2.png", "More", 4)),
+          ],
         ),
       ),
     );
@@ -85,16 +83,15 @@ class _HomeScreenState extends State<BottomNavigation> {
           if (index != 2)
             Image.asset(
               imagePath,
-              height: 22.h,
-              width: 22.w,
+              height: 18.h,
+              width: 20.w,
               color: isSelected ? Pallets.primary : Colors.black,
             ),
-          SizedBox(height: 4.h),
           FittedBox(
             child: CustomText.customText(
               text: label,
-              fontSize: 10.0.sp,
-              fontWeight: isSelected ? FontWeight.w500 : FontWeight.w400,
+              fontSize: 9.0.sp,
+              fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
               color: isSelected ? Pallets.primary : Colors.grey,
             ),
           ),

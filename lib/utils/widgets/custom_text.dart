@@ -13,6 +13,7 @@ class CustomText {
     TextAlign? textAlign,
     TextOverflow? overflow,
     int? maxLines,
+    double? letterSpacing,
     TextDecoration? textDecoration,
   }) {
     return Text(
@@ -20,6 +21,7 @@ class CustomText {
       style: GoogleFonts.roboto(
         color: color ?? Pallets.primaryText,
         fontSize: fontSize ?? 13.sp,
+        letterSpacing: letterSpacing,
         fontWeight: fontWeight ?? FontWeight.normal,
         decoration: textDecoration,
       ),

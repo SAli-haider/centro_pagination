@@ -19,7 +19,7 @@ class EventCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 180.w,
+      width: 138.w,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.r),
@@ -29,32 +29,32 @@ class EventCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(16.r),
             child: Image.asset(
               imagePath,
               width: double.infinity,
-              height: 80.h,
+              height: 70.h,
               fit: BoxFit.cover,
             ),
           ),
-          SizedBox(height: 8.h),
+          // SizedBox(height: 5.h),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.r),
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   title,
                   style: TextStyle(
-                    fontSize: 14.sp,
+                    fontSize: 12.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(height: 2.h),
                 Row(
                   children: [
-                    Icon(Icons.location_on, color: Colors.green, size: 14.sp),
-                    SizedBox(width: 4.w),
+                    Icon(Icons.location_on, color: Colors.green, size: 11.sp),
+                    SizedBox(width: 2.w),
                     Expanded(
                       child: CustomText.customText(
                         text: locations,
@@ -108,21 +108,24 @@ class EventListScreen extends StatelessWidget {
     ];
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10.r),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: events.map((event) {
-            return Padding(
-              padding: EdgeInsets.only(right: 12.w),
-              child: EventCard(
-                imagePath: event["imagePath"]!,
-                title: event["title"]!,
-                locations: event["locations"]!,
-                employees: event["employees"]!,
-              ),
-            );
-          }).toList(),
+      padding: EdgeInsets.symmetric(horizontal: 23.w),
+      child: SizedBox(
+        height: 144.h,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: events.map((event) {
+              return Padding(
+                padding: EdgeInsets.only(right: 12.w),
+                child: EventCard(
+                  imagePath: event["imagePath"]!,
+                  title: event["title"]!,
+                  locations: event["locations"]!,
+                  employees: event["employees"]!,
+                ),
+              );
+            }).toList(),
+          ),
         ),
       ),
     );

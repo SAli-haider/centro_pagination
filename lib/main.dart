@@ -26,10 +26,10 @@ Future<void> main() async {
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Pallets.primary, // Change status bar color
-    statusBarIconBrightness: Brightness.light, // White icons
-    systemNavigationBarColor: Pallets.primary, // Change navigation bar color
-    systemNavigationBarIconBrightness: Brightness.light, // White icons
+    statusBarColor: Pallets.primary,
+    statusBarIconBrightness: Brightness.light,
+    systemNavigationBarColor: Pallets.primary,
+    systemNavigationBarIconBrightness: Brightness.light,
   ));
 
   runApp(MultiProvider(providers: [
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(360, 690),
+      designSize: const Size(360, 800),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
